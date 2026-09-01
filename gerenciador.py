@@ -73,4 +73,37 @@ def desfazer_acao():
         print("Ação desfeita!\n Pedido removido!")
 
 def exibir_painel():
-    
+    print("--------------------------------------")
+    print("------------ KITCHEN FLOW ------------")
+    print("--------------------------------------\n")
+    print("FILA DA COZINHA:")
+
+    if len(fila_cozinha) == 0:
+        print("Fila Vazia!")
+    else:
+        for posicao, numero in enumerate(fila_cozinha, start=1):
+            pedido = pedidos_db[numero]
+
+            print(
+                f"{posicao}. "
+                f"Comanda: {numero} | "
+                f"Mesa: {pedido["mesa"]} | "
+                f"{pedido["prato"]} | "
+                f"{pedido["status"]}"
+            )
+
+    print("\nBASE DE DASOS:")
+
+    if len(pedidos_db) == 0:
+        print("Nenhum Pedido Cadastrado!")
+    else:
+        for numero, pedido in pedidos_db.items():
+            print(pedido)
+
+    print("\nHISTÓRICO DE AÇÕES:")
+
+    if len(historico_kds) == 0:
+        print("Histórico Vazio!")
+    else:
+        for acao in historico_kds:
+            print(acao)
