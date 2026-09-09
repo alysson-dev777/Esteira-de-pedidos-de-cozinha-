@@ -7,7 +7,7 @@ def adicionar_item(prato):
 
     if prato not in cardapio:
         cardapio.append(prato)
-        print("Nova prato adicionado!")
+        print("Novo prato adicionado!")
     else:
         print("Prato já existente!")
 
@@ -44,7 +44,7 @@ def iniciar_preparo():
 
     num_comanda = fila_cozinha.pop(0)
 
-    pedidos_db[num_comanda]["status"] = ["Preparando"]
+    pedidos_db[num_comanda]["status"] = "Preparando"
 
     historico_kds.append(("Iniciar_preparo", num_comanda))
 
@@ -59,7 +59,7 @@ def desfazer_acao():
     acao, num_comanda = historico_kds.pop()
 
     if acao == "Iniciar_preparo":
-        pedidos_db[num_comanda]["status"] = ["Na fila"]
+        pedidos_db[num_comanda]["status"] = "Na fila"
         fila_cozinha.insert(0, num_comanda)
 
         print("Ação desfeita!\n Pedido retornou para a fila!")
@@ -87,12 +87,12 @@ def exibir_painel():
             print(
                 f"{posicao}. "
                 f"Comanda: {numero} | "
-                f"Mesa: {pedido["mesa"]} | "
-                f"{pedido["prato"]} | "
-                f"{pedido["status"]}"
+                f"Mesa: {pedido['mesa']} | "
+                f"{pedido['prato']} | "
+                f"{pedido['status']}"
             )
 
-    print("\nBASE DE DASOS:")
+    print("\nBASE DE DADOS:")
 
     if len(pedidos_db) == 0:
         print("Nenhum Pedido Cadastrado!")

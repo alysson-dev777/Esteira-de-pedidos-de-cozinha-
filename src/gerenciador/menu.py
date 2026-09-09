@@ -24,7 +24,7 @@ def menu():
         indice = int(input(">>> "))
 
         if indice == 1:
-            num_comanda = int(input("Número da comada: "))
+            num_comanda = int(input("Número da comanda: "))
             mesa = int(input("Número da mesa: "))
 
             print("CARDÁPIO:")
